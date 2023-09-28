@@ -36,6 +36,7 @@ To test each experiment:
 
 In each experiment you should see a simulator like this:
 
+![Screenshot from 2023-09-27 19-20-24](https://github.com/hector-aviles/ICRA2024/assets/17507149/bebb5033-5092-4ba6-b66f-644024a79fd2)
 
 ## Contact
 
