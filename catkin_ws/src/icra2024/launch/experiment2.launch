@@ -2,8 +2,8 @@
 <launch>
   <arg name="max_speed" default="20"/>
   <arg name="k_following" default="10"/>
-  <arg name="dist_to_car" default="15"/>  
-  <arg name="goal_dist" default="400"/>    
+  <arg name="dist_to_car" default="20"/>  
+  <arg name="goal_dist" default="1200"/>    
   
   <env name="WEBOTS_HOME" value="/usr/local/webots"/>
   <arg name="no_gui" default="false," doc="Start Webots with minimal GUI"/>
