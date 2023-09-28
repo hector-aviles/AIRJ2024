@@ -1,3 +1,7 @@
+*~
+*.pyc
+*.user
+#*#
 devel/
 logs/
 build/
