@@ -1,0 +1,16 @@
+1) Abrir 3 pestañas de terminales 
+2) Entrar en cada terminal al subdirectorio catkin_ws del repositorio
+3) En cada terminal ejecutar: source devel/setup.bash
+4) Eliminar los archivos .logfile.csv y .trial_number.data del subdirectorio catkin_ws usando el navegador gráfico de archivos 
+
+5) En la primera terminal (de izquierda a derecha), para correr el simulador ejecutar:
+
+roslaunch get_samples experiment_right.launch world:=00 max_speed:=20 dist_to_car:=15
+
+6) En la segunda pestaña, para correr el logger:
+
+rosrun utils logger.py
+
+7) En la tercera pestaña, para ejecutar la política:
+
+rosrun icra2024 policy.py 0 0
