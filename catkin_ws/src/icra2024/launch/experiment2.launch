@@ -34,9 +34,9 @@
   <node pkg="tf" type="static_transform_publisher" name="car_to_accelerometer"   args="  0 0 0.1 0 0 0 car_link accel_link 30"/>  
   <node pkg="tf" type="static_transform_publisher" name="car_to_gps"    args="  0 0 0.1 0 0 0 car_link gps_link 10"/>
 
-
-   <node name="policy" pkg="icra2024" type="policy.py" output="screen">
-    <param name="left_cars_speed" value="5"/>
-    <param name="right_cars_speed" value="4"/>
-  </node>
+  <node name="simple_gui" pkg="simple_gui" type="simple_gui"/>
+   <!-- <node name="policy" pkg="icra2024" type="policy.py" output="screen"> -->
+  <!--   <param name="left_cars_speed" value="5"/> -->
+  <!--   <param name="right_cars_speed" value="4"/> -->
+  <!-- </node> -->
 </launch>
