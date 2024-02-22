@@ -6,6 +6,7 @@
 #include "std_msgs/Bool.h"
 #include "std_msgs/Empty.h"
 #include "std_msgs/Float64.h"
+#include "std_msgs/String.h"
 
 class QtRosNode : public QThread
 {
@@ -27,6 +28,7 @@ public:
     ros::Publisher pub_change_right;
     ros::Publisher pub_speed_cars_left;
     ros::Publisher pub_speed_cars_right;
+    ros::Publisher pub_action;
     bool gui_closed;
     
     void run();

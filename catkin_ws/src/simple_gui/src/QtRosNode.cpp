@@ -21,7 +21,8 @@ void QtRosNode::run()
     pub_follow      = n->advertise<std_msgs::Bool> ("/follow/enable",10);
     pub_change_right= n->advertise<std_msgs::Bool> ("/start_change_lane_on_right",10);
     pub_speed_cars_left  = n->advertise<std_msgs::Float64>("/speed_cars_left_lane", 1);
-    pub_speed_cars_right = n->advertise<std_msgs::Float64>("/speed_cars_right_lane",1);   
+    pub_speed_cars_right = n->advertise<std_msgs::Float64>("/speed_cars_right_lane",1);
+    pub_action      = n->advertise<std_msgs::String>("/action", 1);
     ros::Rate loop(30);
     
     while(ros::ok() && !this->gui_closed)
@@ -100,6 +101,9 @@ void QtRosNode::publish_change_left()
     pub_cruise.publish(msg_cruise);
     pub_follow.publish(msg_follow);
     pub_change_right.publish(msg_change_right);
+    std_msgs::String msg_action;
+    msg_action.data = "change_left";
+    pub_action.publish(msg_action);
 }
 
 void QtRosNode::publish_cruise()
@@ -116,6 +120,9 @@ void QtRosNode::publish_cruise()
     pub_cruise.publish(msg_cruise);
     pub_follow.publish(msg_follow);
     pub_change_right.publish(msg_change_right);
+    std_msgs::String msg_action;
+    msg_action.data = "cruise";
+    pub_action.publish(msg_action);
 }
 
 void QtRosNode::publish_follow()
@@ -132,6 +139,9 @@ void QtRosNode::publish_follow()
     pub_cruise.publish(msg_cruise);
     pub_follow.publish(msg_follow);
     pub_change_right.publish(msg_change_right);
+    std_msgs::String msg_action;
+    msg_action.data = "follow";
+    pub_action.publish(msg_action);
 }
 
 void QtRosNode::publish_change_right()
@@ -148,4 +158,7 @@ void QtRosNode::publish_change_right()
     pub_cruise.publish(msg_cruise);
     pub_follow.publish(msg_follow);
     pub_change_right.publish(msg_change_right);
+    std_msgs::String msg_action;
+    msg_action.data = "change_right";
+    pub_action.publish(msg_action);
 }
