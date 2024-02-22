@@ -192,12 +192,12 @@ HighwayPole {
     }
   ]
 }
-DEF vehicle_2 RangeRoverSportSVRSimple {
+DEF vehicle_1 RangeRoverSportSVRSimple {
   translation 65 1.58987 0.45
   rotation 0 0 1 4.692820414042842e-06
   name "2"
 }
-DEF vehicle_3 CitroenCZeroSimple {
+DEF vehicle_2 CitroenCZeroSimple {
   translation 50 2.18 0.45
   name "3"
 }

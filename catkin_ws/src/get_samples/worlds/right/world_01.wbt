@@ -192,7 +192,7 @@ HighwayPole {
     }
   ]
 }
-DEF vehicle_4 TeslaModel3Simple {
+DEF vehicle_1 TeslaModel3Simple {
   translation 35 1.54 0.4
   name "4"
 }
