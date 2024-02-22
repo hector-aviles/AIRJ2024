@@ -192,7 +192,7 @@ HighwayPole {
     }
   ]
 }
-DEF vehicle_3 CitroenCZeroSimple {
+DEF vehicle_1 CitroenCZeroSimple {
   translation 50 -1.28 0.45
   name "3"
 }

@@ -201,7 +201,7 @@ DEF vehicle_2 RangeRoverSportSVRSimple {
   rotation 0 0 1 4.692820414042842e-06
   name "2"
 }
-DEF vehicle_4 TeslaModel3Simple {
+DEF vehicle_3 TeslaModel3Simple {
   translation 35 -1.65 0.4
   name "4"
 }
