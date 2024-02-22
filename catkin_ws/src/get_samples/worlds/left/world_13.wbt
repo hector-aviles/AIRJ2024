@@ -196,11 +196,11 @@ DEF vehicle_1 LincolnMKZSimple {
   translation 65 1.71 0.45
   name "1"
 }
-DEF vehicle_3 CitroenCZeroSimple {
+DEF vehicle_2 CitroenCZeroSimple {
   translation 50 -1.28 0.45
   name "3"
 }
-DEF vehicle_4 TeslaModel3Simple {
+DEF vehicle_3 TeslaModel3Simple {
   translation 35 -1.65 0.4
   name "4"
 }
