@@ -66,8 +66,8 @@ WorldInfo {
   ]
 }
 Viewpoint {
-  orientation -0.2883066217114107 -0.15883322601737254 0.9442728939190554 3.7539811311634486
-  position 87.50818984001721 25.65785530903239 29.497082615906837
+  orientation -0.28826112636089923 -0.1590430873414489 0.9442514598336854 3.7551614588899587
+  position 150.53737172002525 69.03564335598021 84.8744779076233
   near 1
   follow "vehicle"
   lensFlare LensFlare {
@@ -199,4 +199,27 @@ DEF vehicle_1 CitroenCZeroSimple {
 Robot {
   controller "supervisor_iros"
   supervisor TRUE
+}
+DEF lateral_car_1 ToyotaPrius {
+  translation 36.18 36.13 1.1
+  rotation 0 0 1 -1.57
+  name "vehicle_lateral_1"
+}
+DEF lateral_car_2 ToyotaPrius {
+  translation 66.18 36.13 1.2
+  rotation 0 0 1 -1.57
+  name "vehicle_lateral_2"
+}
+StraightRoadSegment {
+  translation 38 4 0
+  rotation 0 0 1 1.57
+  length 60
+  roadBoundingObject TRUE
+}
+StraightRoadSegment {
+  translation 68 4 0
+  rotation 0 0 1 1.57
+  name "road(1)"
+  length 60
+  roadBoundingObject TRUE
 }
