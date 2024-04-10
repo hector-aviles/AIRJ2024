@@ -20,19 +20,17 @@ Methodology details are described in the contributed paper.
 Note: It is assumed that Ubuntu OS, ROS platform and Webots simulator are already installed. 
 
 * $ cd
-* $ git clone https://github.com/hector-aviles/ICRA2024
-* $ cd ICRA2024/catkin_ws
+* $ git clone https://github.com/hector-aviles/IROS2024
+* $ cd IROS2024/catkin_ws
 * $ catkin_make
-* $ echo "source ~/ICRA2024/catkin_ws/devel/setup.bash" >> ~/.bashrc
+* $ echo "source ~/IROS2024/catkin_ws/devel/setup.bash" >> ~/.bashrc
 * $ source ~/.bashrc
 
 ## Testing
 
 To test each experiment:
 
-* $ roslaunch icra2024 experiment1_5_cars.launch
-* $ roslaunch icra2024 experiment1_10_cars.launch
-* $ roslaunch icra2024 experiment2.launch
+* $ roslaunch get_samples experiment_left.launch world:=01
 
 In each experiment you should see a simulator like this:
 
