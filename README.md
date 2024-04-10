@@ -23,6 +23,8 @@ Note: It is assumed that Ubuntu OS, ROS platform and Webots simulator are alread
 * $ git clone https://github.com/hector-aviles/IROS2024
 * $ cd IROS2024/catkin_ws
 * $ catkin_make
+* $ sudo apt install ros-noetic-webots-ros
+* $ sudo apt install ros-noetic-ros-numpy
 * $ echo "source ~/IROS2024/catkin_ws/devel/setup.bash" >> ~/.bashrc
 * $ source ~/.bashrc
 
@@ -31,6 +33,7 @@ Note: It is assumed that Ubuntu OS, ROS platform and Webots simulator are alread
 To test each experiment:
 
 * $ roslaunch get_samples experiment_left.launch world:=01
+* $ rosrun simple_gui simple_gui
 
 In each experiment you should see a simulator like this:
 
