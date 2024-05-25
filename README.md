@@ -9,12 +9,12 @@
 Note: It is assumed that Ubuntu OS, ROS platform and Webots simulator are already installed. 
 
 * $ cd
-* $ git clone https://github.com/hector-aviles/IROS2024
-* $ cd IROS2024/catkin_ws
+* $ git clone https://github.com/hector-aviles/JIFS2024
+* $ cd JIFS2024/catkin_ws
 * $ catkin_make
 * $ sudo apt install ros-noetic-webots-ros
 * $ sudo apt install ros-noetic-ros-numpy
-* $ echo "source ~/IROS2024/catkin_ws/devel/setup.bash" >> ~/.bashrc
+* $ echo "source ~/JIFS2024/catkin_ws/devel/setup.bash" >> ~/.bashrc
 * $ source ~/.bashrc
 
 ## Two Way experiment:
