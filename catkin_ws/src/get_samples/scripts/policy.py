@@ -488,7 +488,7 @@ def main(str_speed_left, str_speed_right):
 if __name__ == "__main__":
 
     if len(sys.argv) != 3:
-        print("Usage: rosrun icra2024 policy.py speed_left speed_right (m/s)", len(sys.argv))
+        print("Usage: rosrun jifs2024 policy.py speed_left speed_right (m/s)", len(sys.argv))
     else:     
         try:
            main(sys.argv[1], sys.argv[2])
