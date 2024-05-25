@@ -12,6 +12,7 @@ Note: It is assumed that Ubuntu OS, ROS platform and Webots simulator are alread
 * $ git clone https://github.com/hector-aviles/JIFS2024
 * $ cd JIFS2024/catkin_ws
 * $ catkin_make
+* $ sudo pip3 install beepy
 * $ sudo apt install ros-noetic-webots-ros
 * $ sudo apt install ros-noetic-ros-numpy
 * $ echo "source ~/JIFS2024/catkin_ws/devel/setup.bash" >> ~/.bashrc
@@ -20,6 +21,7 @@ Note: It is assumed that Ubuntu OS, ROS platform and Webots simulator are alread
 ## Two Way experiment:
 
 $ roslaunch get_samples jifs.launch world:=two_ways
+$ rosrun utils logger.py
 
 * En la GUI presionar botón de Start antes de 50 segundos de iniciado el mundo
 * Con los botones de la GUI se activan los comportamientos
