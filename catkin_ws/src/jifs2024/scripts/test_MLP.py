@@ -16,6 +16,10 @@ import time
 import numpy as np
 import os
 
+def callback_free_N(msg):
+    global free_N
+    free_N = msg.data
+
 def callback_free_NW(msg):
     global free_NW
     free_NW = msg.data
@@ -89,11 +93,11 @@ def main(speed_left, speed_right):
     vel_cars_left_lane = int(speed_left)
     vel_cars_right_lane = int(speed_right)    
     
-    
     print("INITIALIZING POLICY...", flush=True)
     rospy.init_node("test_MLP")
     rate = rospy.Rate(10) #Hz
        
+    rospy.Subscriber("/free/north", Bool, callback_free_N)              
     rospy.Subscriber("/free/north_west", Bool, callback_free_NW)
     rospy.Subscriber("/free/west"      , Bool, callback_free_W)
     rospy.Subscriber("/free/south_west", Bool, callback_free_SW)
@@ -101,7 +105,6 @@ def main(speed_left, speed_right):
     rospy.Subscriber("/free/east"      , Bool, callback_free_E)    
     rospy.Subscriber("/free/south_east"      , Bool, callback_free_SE)
     rospy.Subscriber("/current_lane", Bool, callback_curr_lane)
-   
        
     pub_policy_started  = rospy.Publisher("/policy_started", Empty, queue_size=1)
     pub_cruise = rospy.Publisher("/cruise/enable", Bool, queue_size=1)
@@ -138,6 +141,12 @@ def main(speed_left, speed_right):
         print("Publishing policy_started", i )
         i = i + 1
     rate = rospy.Rate(10) #Hz
+    
+    # Patch   
+    if curr_lane:
+       free_NE = free_N
+    else: 
+       free_NW = free_N   
 
     action = action_prev = "NA"            
     while not rospy.is_shutdown():
@@ -166,16 +175,16 @@ def main(speed_left, speed_right):
         try:
            start_time = time.time()
            y = model.predict(X)
+           action = y[0]
            end_time = time.time()
            testing_time = end_time - start_time
            print("Prediction time:", testing_time, flush = True)           
         except Exception as error:
            print("An error occurred getting prediction:", error)
-
-        try:
-           action = y[0]
-        except Exception as error:
-           print("An error occurred getting action:", error)
+           
+        print(action, flush = True)
+        action_prev = action
+        print("curr_lane", curr_lane, "free_NE", free_NE, "free_NW", free_NW, "free_SW", free_SW, "free_W", free_W, "free_SE", free_SE, "free_E", free_E,  flush = True)
                 
         if action == "Cruise":
            pub_action.publish("Cruise")

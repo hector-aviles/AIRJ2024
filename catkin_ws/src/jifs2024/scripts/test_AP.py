@@ -21,6 +21,10 @@ module_path = module_path + "/src/jifs2024/scripts/decision_models/"
 sys.path.append(module_path)
 from APClassifier import RuleClassifier
 
+def callback_free_N(msg):
+    global free_N
+    free_N = msg.data
+
 def callback_free_NW(msg):
     global free_NW
     free_NW = msg.data
@@ -98,7 +102,8 @@ def main(speed_left, speed_right):
     print("INITIALIZING POLICY...", flush=True)
     rospy.init_node("test_AP")
     rate = rospy.Rate(10) #Hz
-       
+   
+    rospy.Subscriber("/free/north", Bool, callback_free_N)              
     rospy.Subscriber("/free/north_west", Bool, callback_free_NW)
     rospy.Subscriber("/free/west"      , Bool, callback_free_W)
     rospy.Subscriber("/free/south_west", Bool, callback_free_SW)
@@ -143,6 +148,12 @@ def main(speed_left, speed_right):
         print("Publishing policy_started", i )
         i = i + 1
     rate = rospy.Rate(10) #Hz
+ 
+    # Patch   
+    if curr_lane:
+       free_NE = free_N
+    else: 
+       free_NW = free_N   
 
     action = action_prev = "NA"            
     while not rospy.is_shutdown():
@@ -171,16 +182,16 @@ def main(speed_left, speed_right):
         try:
            start_time = time.time()
            y = model.predict(X)
+           action = y[0]
            end_time = time.time()
            testing_time = end_time - start_time
            print("Prediction time:", testing_time, flush = True)           
         except Exception as error:
            print("An error occurred getting prediction:", error)
-
-        try:
-           action = y[0]
-        except Exception as error:
-           print("An error occurred getting action:", error)
+           
+        print(action, flush = True)
+        action_prev = action
+        print("curr_lane", curr_lane, "free_NE", free_NE, "free_NW", free_NW, "free_SW", free_SW, "free_W", free_W, "free_SE", free_SE, "free_E", free_E,  flush = True)
                 
         if action == "Cruise":
            pub_action.publish("Cruise")
@@ -200,11 +211,7 @@ def main(speed_left, speed_right):
            print ("Waiting for change lane to finish...", flush = True, end="")
            rospy.wait_for_message("/change_lane_finished", Bool, timeout=10000.0)
            print (" End", flush = True)
-        
-        print(action, flush = True)
-        action_prev = action
-        print("curr_lane", curr_lane, "free_NE", free_NE, "free_NW", free_NW, "free_SW", free_SW, "free_W", free_W, "free_SE", free_SE, "free_E", free_E,  flush = True)
-                                              
+                                                      
         rate.sleep()
 
 if __name__ == "__main__":

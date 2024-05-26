@@ -16,6 +16,10 @@ import time
 import numpy as np
 import os
 
+def callback_free_N(msg):
+    global free_N
+    free_N = msg.data
+
 def callback_free_NW(msg):
     global free_NW
     free_NW = msg.data
@@ -83,17 +87,17 @@ def change_lane_on_right():
     pub_change_lane_on_right.publish(True)    
             
 def main(speed_left, speed_right):
-    global free_NW, free_W, free_SW, free_NE, free_E, free_SE,  curr_lane, change_lane_finished
+    global free_N, free_NW, free_W, free_SW, free_NE, free_E, free_SE,  curr_lane, change_lane_finished
     global pub_keep_distance, pub_cruise, pub_change_lane_on_left, pub_change_lane_on_right, pub_action
     
     vel_cars_left_lane = int(speed_left)
     vel_cars_right_lane = int(speed_right)    
     
-    
     print("INITIALIZING POLICY...", flush=True)
     rospy.init_node("test_CART")
     rate = rospy.Rate(10) #Hz
-       
+
+    rospy.Subscriber("/free/north", Bool, callback_free_N)       
     rospy.Subscriber("/free/north_west", Bool, callback_free_NW)
     rospy.Subscriber("/free/west"      , Bool, callback_free_W)
     rospy.Subscriber("/free/south_west", Bool, callback_free_SW)
@@ -138,6 +142,12 @@ def main(speed_left, speed_right):
         print("Publishing policy_started", i )
         i = i + 1
     rate = rospy.Rate(10) #Hz
+    
+    # Patch
+    if curr_lane:
+       free_NE = free_N
+    else: 
+       free_NW = free_N   
 
     action = action_prev = "NA"            
     while not rospy.is_shutdown():
@@ -166,17 +176,17 @@ def main(speed_left, speed_right):
         try:
            start_time = time.time()
            y = model.predict(X)
+           action = y[0]
            end_time = time.time()
            testing_time = end_time - start_time
            print("Prediction time:", testing_time, flush = True)           
         except Exception as error:
            print("An error occurred getting prediction:", error)
-
-        try:
-           action = y[0]
-        except Exception as error:
-           print("An error occurred getting action:", error)
-                
+           
+        print(action, flush = True)
+        action_prev = action
+        print("curr_lane", curr_lane, "free_NE", free_NE, "free_NW", free_NW, "free_SW", free_SW, "free_W", free_W, "free_SE", free_SE, "free_E", free_E,  flush = True)
+    
         if action == "Cruise":
            pub_action.publish("Cruise")
            cruise()                
@@ -195,11 +205,7 @@ def main(speed_left, speed_right):
            print ("Waiting for change lane to finish...", flush = True, end="")
            rospy.wait_for_message("/change_lane_finished", Bool, timeout=10000.0)
            print (" End", flush = True)
-        
-        print(action, flush = True)
-        action_prev = action
-        print("curr_lane", curr_lane, "free_NE", free_NE, "free_NW", free_NW, "free_SW", free_SW, "free_W", free_W, "free_SE", free_SE, "free_E", free_E,  flush = True)
-                                              
+                                                      
         rate.sleep()
 
 if __name__ == "__main__":
