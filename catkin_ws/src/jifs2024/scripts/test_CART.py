@@ -143,12 +143,6 @@ def main(speed_left, speed_right):
         i = i + 1
     rate = rospy.Rate(10) #Hz
     
-    # Patch
-    if curr_lane:
-       free_NE = free_N
-    else: 
-       free_NW = free_N   
-
     action = action_prev = "NA"            
     while not rospy.is_shutdown():
         pub_policy_started.publish()
@@ -156,6 +150,13 @@ def main(speed_left, speed_right):
         pub_speed_cars_right_lane.publish(vel_cars_right_lane)          
         
         try:
+
+           # Patch   
+           if curr_lane:
+             free_NE = free_N
+           else: 
+             free_NW = free_N   
+        
            X = pd.DataFrame(columns=["curr_lane", "free_E", "free_NE", "free_NW", "free_SE", "free_SW", "free_W"])
 
            row_val = {

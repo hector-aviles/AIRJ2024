@@ -14,13 +14,11 @@ robot = Supervisor()
 # Cruise speed cars in left lane 
 def callback_speed_cars_left_lane( msg ):
   global speed_cars_left_lane
-  print("topid left received")
   speed_cars_left_lane = msg.data
   
 # Cruise speed cars in right lane 
 def callback_speed_cars_right_lane( msg ):
   global speed_cars_right_lane
-  print("topic right received")
   speed_cars_right_lane = msg.data  
 
 def main():
