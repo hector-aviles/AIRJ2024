@@ -28,14 +28,9 @@ Note: It is assumed that Ubuntu OS, ROS platform and Webots simulator are alread
 
 ## Videos
 * A vehicle approaching in the opposite direction
-
-https://github.com/hector-aviles/JIFS2024/assets/67079858/3a7ea50d-20ee-4a78-81ad-f38a0a62c281
-
+https://github.com/hector-aviles/JIFS2024/assets/67079858/0860044b-ea15-4925-a62f-529eb55a9948
 * A vehicle travelling in the transverse direction
-
-https://github.com/hector-aviles/JIFS2024/assets/67079858/1e4b4664-0559-4ee1-98ab-f971068c3fa2
-
-
+https://github.com/hector-aviles/JIFS2024/assets/67079858/03caaf6b-ab8c-444d-a79c-f0df0bf894c9
 
 ## Contact
 
