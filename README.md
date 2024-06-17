@@ -27,11 +27,14 @@ Note: It is assumed that Ubuntu OS, ROS platform and Webots simulator are alread
 * Con los botones de la GUI se activan los comportamientos
 
 ## Videos
-* A vehicle approaching in the ppposite direction
+* A vehicle approaching in the opposite direction
 
-  <video src='https://drive.google.com/file/d/17ybl98SDM4WDht-G5vFCKUM6rgFcRbMZ/view?usp=sharing' width=180/>
+https://github.com/hector-aviles/JIFS2024/assets/67079858/3a7ea50d-20ee-4a78-81ad-f38a0a62c281
 
-* 
+* A vehicle travelling in the transverse direction
+
+https://github.com/hector-aviles/JIFS2024/assets/67079858/1e4b4664-0559-4ee1-98ab-f971068c3fa2
+
 
 
 ## Contact
