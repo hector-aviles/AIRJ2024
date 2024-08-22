@@ -9,7 +9,7 @@
 Note: It is assumed that Ubuntu OS, ROS platform and Webots simulator are already installed. 
 
 * $ cd
-* $ git clone https://github.com/hector-aviles/JIFS2024
+* $ git clone https://github.com/hector-aviles/AIR2024
 * $ cd AIR2024/catkin_ws
 * $ catkin_make
 * $ sudo pip3 install beepy
