@@ -9,13 +9,13 @@
 Note: It is assumed that Ubuntu OS, ROS platform and Webots simulator are already installed. 
 
 * $ cd
-* $ git clone https://github.com/hector-aviles/AIR2024
-* $ cd AIR2024/catkin_ws
+* $ git clone https://github.com/hector-aviles/AIRJ2024
+* $ cd AIRJ2024/catkin_ws
 * $ catkin_make
 * $ sudo pip3 install beepy
 * $ sudo apt install ros-noetic-webots-ros
 * $ sudo apt install ros-noetic-ros-numpy
-* $ echo "source ~/AIR2024/catkin_ws/devel/setup.bash" >> ~/.bashrc
+* $ echo "source ~/AIRJ2024/catkin_ws/devel/setup.bash" >> ~/.bashrc
 * $ source ~/.bashrc
 
 ## Two Way experiment:
