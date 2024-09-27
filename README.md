@@ -20,7 +20,7 @@ Note: It is assumed that Ubuntu OS, ROS platform and Webots simulator are alread
 
 ## Two Way experiment:
 
-* $ roslaunch get_samples jifs.launch world:=two_ways
+* $ roslaunch get_samples airj.launch world:=two_ways
 * $ rosrun utils logger.py
 
 * En la GUI presionar botón de Start antes de 50 segundos de iniciado el mundo
