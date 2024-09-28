@@ -99,11 +99,11 @@ def main():
             if from_right_to_left:
                #print("Gira ruedas a la derecha")
                pub_angle.publish(-0.2)
-               mysleep(0.15)
+               mysleep(0.2)
             else:
                #print("Gira ruedas a la izquierda")               
                pub_angle.publish(0.2)
-               mysleep(0.15)
+               mysleep(0.2)
             #print("Termina de reorientarse curr_time", curr_time)                  
             print("change_lane: finish change_lane ", "curr_time", curr_time, "elapsed time", elapsed_time, flush=True)
                     
