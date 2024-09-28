@@ -18,14 +18,17 @@ Note: It is assumed that Ubuntu OS, ROS platform and Webots simulator are alread
 * $ echo "source ~/AIRJ2024/catkin_ws/devel/setup.bash" >> ~/.bashrc
 * $ source ~/.bashrc
 
-## Two Way experiment:
+## To collect driving samples, run:
 
-* $ roslaunch get_samples airj.launch world:=two_ways
-* $ rosrun airj2024 policy.py
-* $ rosrun utils logger.py
+$ roslaunch get_samples manual_control.launch world:=/right/world_00
 
-* En la GUI presionar botón de Start antes de 50 segundos de iniciado el mundo
-* Con los botones de la GUI se activan los comportamientos
+$ rosrun utils logger.py
+
+Change to world:=/left/world_00 to start the self-driving vehicle on the left lane. World numbers ranges from 00 to 15.
+
+## To execute autonomous driving using a probabilistic logic state-action policy, just run:
+
+$ roslaunch airj2024 two_ways.launch
 
 ## Videos
 * A vehicle approaching in the opposite direction
