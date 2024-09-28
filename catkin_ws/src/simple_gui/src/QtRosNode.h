@@ -23,8 +23,10 @@ public:
     ros::Publisher pub_steering;
     ros::Publisher pub_start;
     ros::Publisher pub_change_left;
+    ros::Publisher pub_swive_left;
     ros::Publisher pub_cruise;
     ros::Publisher pub_follow;
+    ros::Publisher pub_swive_right;
     ros::Publisher pub_change_right;
     ros::Publisher pub_speed_cars_left;
     ros::Publisher pub_speed_cars_right;
@@ -44,6 +46,10 @@ public:
     void publish_cruise();
     void publish_follow();
     void publish_change_right();
+    void publish_speed_cars_left_lane(double v);
+    void publish_speed_cars_right_lane(double v);
+    void publish_start_swive_left();
+    void publish_start_swive_right();
 signals:
     void updateGraphics();
     void onRosNodeFinished();

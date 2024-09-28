@@ -202,6 +202,6 @@ DEF vehicle_2 TeslaModel3Simple {
   name "4"
 }
 Robot {
-  controller "supervisor_iros"
+  controller "supervisor_airj"
   supervisor TRUE
 }

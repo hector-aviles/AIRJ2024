@@ -20,6 +20,8 @@ MainWindow::MainWindow(QWidget *parent) :
     QObject::connect(ui->btnCruise, SIGNAL(clicked()), this, SLOT(btn_cruise_clicked()));
     QObject::connect(ui->btnFollow, SIGNAL(clicked()), this, SLOT(btn_follow_clicked()));
     QObject::connect(ui->btnChangeRight, SIGNAL(clicked()), this, SLOT(btn_change_right_clicked()));
+    QObject::connect(ui->btnSwiveLeft, SIGNAL(clicked()), this, SLOT(btn_swive_left_clicked()));
+    QObject::connect(ui->btnSwiveRight, SIGNAL(clicked()), this, SLOT(btn_swive_right_clicked()));
 }
 
 MainWindow::~MainWindow()
@@ -114,4 +116,14 @@ void MainWindow::btn_follow_clicked()
 void MainWindow::btn_change_right_clicked()
 {
     qtRosNode->publish_change_right();
+}
+
+void MainWindow::btn_swive_left_clicked()
+{
+    qtRosNode->publish_start_swive_left();
+}
+
+void MainWindow::btn_swive_right_clicked()
+{
+    qtRosNode->publish_start_swive_right();
 }

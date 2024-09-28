@@ -17,8 +17,10 @@ void QtRosNode::run()
     pub_steering    = n->advertise<std_msgs::Float64>("/steering",10);
     pub_start       = n->advertise<std_msgs::Empty>("/policy_started" ,10);
     pub_change_left = n->advertise<std_msgs::Bool> ("/start_change_lane_on_left",10);
+    pub_swive_left  = n->advertise<std_msgs::Bool> ("/start_swive_left", 10);
     pub_cruise      = n->advertise<std_msgs::Bool> ("/cruise/enable",10);
     pub_follow      = n->advertise<std_msgs::Bool> ("/follow/enable",10);
+    pub_swive_right = n->advertise<std_msgs::Bool> ("/start_swive_right",10);
     pub_change_right= n->advertise<std_msgs::Bool> ("/start_change_lane_on_right",10);
     pub_speed_cars_left  = n->advertise<std_msgs::Float64>("/speed_cars_left_lane", 1);
     pub_speed_cars_right = n->advertise<std_msgs::Float64>("/speed_cars_right_lane",1);
@@ -93,6 +95,10 @@ void QtRosNode::publish_change_left()
     std_msgs::Bool msg_cruise;      
     std_msgs::Bool msg_follow;      
     std_msgs::Bool msg_change_right;
+    std_msgs::Bool msg_swive_right;
+    std_msgs::Bool msg_swive_left;
+    msg_swive_right.data = false;        
+    msg_swive_left.data = false;        
     msg_change_left.data = true;
     msg_cruise.data = false;
     msg_follow.data = false;
@@ -101,6 +107,8 @@ void QtRosNode::publish_change_left()
     pub_cruise.publish(msg_cruise);
     pub_follow.publish(msg_follow);
     pub_change_right.publish(msg_change_right);
+    pub_swive_right.publish(msg_swive_right);    
+    pub_swive_left.publish(msg_swive_left);
     std_msgs::String msg_action;
     msg_action.data = "change_left";
     pub_action.publish(msg_action);
@@ -112,6 +120,10 @@ void QtRosNode::publish_cruise()
     std_msgs::Bool msg_cruise;      
     std_msgs::Bool msg_follow;      
     std_msgs::Bool msg_change_right;
+    std_msgs::Bool msg_swive_right;
+    std_msgs::Bool msg_swive_left;
+    msg_swive_right.data = false;        
+    msg_swive_left.data = false;        
     msg_change_left.data = false;
     msg_cruise.data = true;
     msg_follow.data = false;
@@ -131,6 +143,10 @@ void QtRosNode::publish_follow()
     std_msgs::Bool msg_cruise;      
     std_msgs::Bool msg_follow;      
     std_msgs::Bool msg_change_right;
+    std_msgs::Bool msg_swive_right;
+    std_msgs::Bool msg_swive_left;
+    msg_swive_right.data = false;        
+    msg_swive_left.data = false;        
     msg_change_left.data = false;
     msg_cruise.data = false;
     msg_follow.data = true;
@@ -150,6 +166,10 @@ void QtRosNode::publish_change_right()
     std_msgs::Bool msg_cruise;      
     std_msgs::Bool msg_follow;      
     std_msgs::Bool msg_change_right;
+    std_msgs::Bool msg_swive_right;
+    std_msgs::Bool msg_swive_left;
+    msg_swive_right.data = false;        
+    msg_swive_left.data = false;        
     msg_change_left.data = false;
     msg_cruise.data = false;
     msg_follow.data = false;
@@ -161,4 +181,42 @@ void QtRosNode::publish_change_right()
     std_msgs::String msg_action;
     msg_action.data = "change_right";
     pub_action.publish(msg_action);
+}
+
+
+void QtRosNode::publish_speed_cars_left_lane(double v)
+{
+    std_msgs::Float64 msg;
+    msg.data = v;
+    pub_speed_cars_left.publish(msg);
+}
+
+void QtRosNode::publish_speed_cars_right_lane(double v)
+{
+    std_msgs::Float64 msg;
+    msg.data = v;
+    pub_speed_cars_left.publish(msg);
+}
+
+void QtRosNode::publish_start_swive_left()
+{
+    std_msgs::Bool msg;
+    msg.data = true;
+    pub_swive_left.publish(msg);
+    
+    std_msgs::String msg_action;
+    msg_action.data = "swive_left";
+    pub_action.publish(msg_action);    
+    
+}
+
+void QtRosNode::publish_start_swive_right()
+{
+    std_msgs::Bool msg;
+    msg.data = true;
+    pub_swive_right.publish(msg);
+    
+    std_msgs::String msg_action;
+    msg_action.data = "swive_right";
+    pub_action.publish(msg_action);    
 }

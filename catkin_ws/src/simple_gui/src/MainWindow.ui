@@ -64,8 +64,8 @@ QRadioButton::indicator{
    <widget class="QPushButton" name="btnStart">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>500</y>
+      <x>610</x>
+      <y>440</y>
       <width>111</width>
       <height>41</height>
      </rect>
@@ -77,7 +77,7 @@ QRadioButton::indicator{
    <widget class="QPushButton" name="btnChangeLeft">
     <property name="geometry">
      <rect>
-      <x>150</x>
+      <x>20</x>
       <y>500</y>
       <width>111</width>
       <height>41</height>
@@ -90,7 +90,7 @@ QRadioButton::indicator{
    <widget class="QPushButton" name="btnCruise">
     <property name="geometry">
      <rect>
-      <x>280</x>
+      <x>260</x>
       <y>500</y>
       <width>111</width>
       <height>41</height>
@@ -103,7 +103,7 @@ QRadioButton::indicator{
    <widget class="QPushButton" name="btnFollow">
     <property name="geometry">
      <rect>
-      <x>410</x>
+      <x>380</x>
       <y>500</y>
       <width>111</width>
       <height>41</height>
@@ -116,7 +116,7 @@ QRadioButton::indicator{
    <widget class="QPushButton" name="btnChangeRight">
     <property name="geometry">
      <rect>
-      <x>540</x>
+      <x>620</x>
       <y>500</y>
       <width>111</width>
       <height>41</height>
@@ -155,7 +155,7 @@ QRadioButton::indicator{
      <number>20</number>
     </property>
     <property name="value">
-     <number>5</number>
+     <number>3</number>
     </property>
    </widget>
    <widget class="QLabel" name="label_2">
@@ -187,7 +187,33 @@ QRadioButton::indicator{
      <number>20</number>
     </property>
     <property name="value">
-     <number>-4</number>
+     <number>3</number>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnSwiveRight">
+    <property name="geometry">
+     <rect>
+      <x>500</x>
+      <y>500</y>
+      <width>111</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Swive Right</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnSwiveLeft">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>500</y>
+      <width>111</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Swive Left</string>
     </property>
    </widget>
   </widget>

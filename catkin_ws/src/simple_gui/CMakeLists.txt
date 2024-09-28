@@ -61,4 +61,3 @@ target_link_libraries(simple_gui
   ${catkin_LIBRARIES}
   ${QWT_LIBRARIES}
 )
-

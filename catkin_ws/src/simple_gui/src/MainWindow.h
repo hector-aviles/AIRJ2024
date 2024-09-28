@@ -39,8 +39,10 @@ public slots:
 
     void btn_start_clicked();
     void btn_change_left_clicked();
+    void btn_swive_left_clicked();
     void btn_cruise_clicked();
     void btn_follow_clicked();
+    void btn_swive_right_clicked();
     void btn_change_right_clicked();
     
 private:

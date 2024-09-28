@@ -202,6 +202,6 @@ DEF vehicle_2 CitroenCZeroSimple {
   name "3"
 }
 Robot {
-  controller "supervisor_iros"
+  controller "supervisor_airj"
   supervisor TRUE
 }

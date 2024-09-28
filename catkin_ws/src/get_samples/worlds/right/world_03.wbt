@@ -198,6 +198,6 @@ DEF vehicle_1 RangeRoverSportSVRSimple {
   name "2"
 }
 Robot {
-  controller "supervisor_iros"
+  controller "supervisor_airj"
   supervisor TRUE
 }
