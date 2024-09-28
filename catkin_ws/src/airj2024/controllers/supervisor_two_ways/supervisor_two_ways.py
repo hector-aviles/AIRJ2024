@@ -88,8 +88,10 @@ robot.getFromDef('vehicle_3'), robot.getFromDef('vehicle_4'),  robot.getFromDef(
                            
                if msg_car_pose.y > 0:            
                   car.setVelocity([speed_cars_left_lane,0,0, 0,0,0])
+                  print("Car 1 speed:", speed_cars_left_lane, flush = True)
                else:    
                   car.setVelocity([speed_cars_right_lane,0,0, 0,0,0])
+                  print("Car 2 speed:", speed_cars_right_lane, flush = True)
                            
                if i == 0:
                   pub_car_1_pose.publish(msg_car_pose)  

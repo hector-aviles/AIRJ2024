@@ -66,7 +66,8 @@ WorldInfo {
   ]
 }
 Viewpoint {
-  orientation -0.24786553913436143 -0.16319841797068568 0.9549497111793362 3.9452617784778283
+  fieldOfView 0.7
+  orientation -0.24007701177730112 -0.16692318225084168 0.956294766085925 3.9881456857686572
   position 115.13180887056889 64.34623668316294 51.05757749991739
   near 1
   follow "vehicle"
@@ -90,7 +91,7 @@ SpeedLimitPanel {
   ]
 }
 StraightRoadSegment {
-  translation 120 0 0.1
+  translation 120 0 0
   name "segment_2"
   length 200
   roadBoundingObject TRUE
@@ -121,9 +122,9 @@ DEF BMW_X5 BmwX5 {
   ]
 }
 StraightRoadSegment {
-  translation 10 0 0.1
+  translation 74.5 0 0
   name "segment_1"
-  length 110
+  length 45.5
   roadBoundingObject TRUE
   rightBorderBoundingObject TRUE
   leftBorderBoundingObject TRUE
@@ -192,24 +193,39 @@ HighwayPole {
     }
   ]
 }
-DEF vehicle_1 LincolnMKZSimple {
-  translation 65 -1.57 0.45
-  name "1"
-}
-DEF vehicle_2 RangeRoverSportSVRSimple {
-  translation 65 1.58987 0.45
-  rotation 0 0 1 4.692820414042842e-06
-  name "2"
-}
-DEF vehicle_3 CitroenCZeroSimple {
-  translation 50 2.18 0.45
-  name "3"
-}
-DEF vehicle_4 TeslaModel3Simple {
-  translation 35 1.54 0.4
-  name "4"
+DEF lateral_car LincolnMKZSimple {
+  translation 64.2623 -36.3994 0.279
+  rotation 0 0 1 1.57
+  name "lateral_car"
 }
 Robot {
-  controller "supervisor_airj"
+  controller "supervisor_transverse"
   supervisor TRUE
+}
+StraightRoadSegment {
+  translation 66 8.5 0
+  rotation 0 0 1 1.57
+  numberOfForwardLanes 3
+  length 40
+  roadBoundingObject TRUE
+}
+StraightRoadSegment {
+  translation 66 -48.5 0
+  rotation 0 0 1 1.57
+  name "road(1)"
+  length 40
+  roadBoundingObject TRUE
+}
+RoadIntersection {
+  translation 66 0 0
+  rotation 0 0 1 0.785
+  boundingObject TRUE
+}
+StraightRoadSegment {
+  translation 10 0 0
+  name "road(2)"
+  length 47.5
+  roadBoundingObject TRUE
+  rightBorderBoundingObject TRUE
+  leftBorderBoundingObject TRUE
 }
